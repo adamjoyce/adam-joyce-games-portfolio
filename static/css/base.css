@@ -1,0 +1,23 @@
+/* General Elements. */
+body {
+  color: #575757;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+header {
+
+}
+
+
+/* General Classes */
+.canvas {
+  margin: 0.625rem auto;      /* 10px auto */
+  padding: 4.6875rem;         /* 75px */
+}
+
+/* Header */
+.nav-bar {
+
+}
