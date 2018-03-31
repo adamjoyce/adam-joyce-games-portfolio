@@ -1,23 +1,142 @@
 /* General Elements. */
 body {
   color: #575757;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', arial, sans-serif;
   font-size: 1rem;
   font-weight: 300;
 }
 
 header {
-
+  display: block;
 }
+/* End of General Elements. */
 
 
-/* General Classes */
+/* General Classes. */
 .canvas {
   margin: 0.625rem auto;      /* 10px auto */
   padding: 4.6875rem;         /* 75px */
 }
+/* End of General Classes. */
+
 
 /* Header */
 .nav-bar {
+  display: inline-block;
+  font-family: 'PT Sans';
+  text-transform: uppercase;
+}
 
+.nav-bar a {
+  color: #999;
+  text-decoration: none;
+}
+
+/* .nav-bar a:hover {
+  color: #111;
+} */
+
+.mobile-nav-bar {
+  display: block;
+  text-align: center;
+}
+
+.mobile-nav-bar {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.mobile-nav-bar a {
+  display: block;
+  padding: 0.75rem 0;
+}
+
+.mobile-nav-wrapper {
+  border-bottom: 0px none;
+  max-height: 9.0625rem;     /* 145px */
+  overflow-y: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+.mobile-nav-wrapper li:first-of-type a {
+  padding-top: 1.5rem;
+}
+
+.mobile-nav-wrapper li:last-of-type a {
+  padding-bottom: 1.5rem;
+}
+
+.drawer-closed {
+  max-height: 0;
+}
+
+.menu-toggle-wrapper {
+  padding: 0.75rem 0;
+}
+
+.logo {
+  height: 3.125rem;     /* 50px */
+  text-align: center;
+}
+
+.logo img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#logo {
+  display: block;
+}
+/* End of Header. */
+
+
+/* Media Queries. */
+@media (max-width: 45.8125rem) {      /* 733px */
+  .canvas {
+    margin: 0;
+    padding: 0 1.25rem;     /* 20px */
+  }
+
+  .logo {
+    height: 1.875rem;     /* 30px */
+  }
+
+  .default-nav-bar {
+    display: none;
+  }
+}
+
+/* CSS Grid Support. */
+@supports (display: grid) {
+  @media (min-width: 45.8125rem) {      /* 733px */
+    .mobile-nav-bar {
+      display: none;
+    }
+
+    .default-nav-bar {
+      float: right;
+      line-height: 2.9375rem;     /* 47px */
+    }
+
+    .default-nav-bar li {
+      display: inline-block;
+    }
+
+    .default-nav-bar li a {
+      margin-right: 1rem;
+      padding: 1rem 0;
+    }
+
+    .default-nav-bar li:last-of-type a {
+      margin-right: 0;
+    }
+
+    .logo {
+      text-align: left;
+    }
+
+    #logo {
+      display: inline-block;
+    }
+  }
 }

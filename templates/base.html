@@ -11,14 +11,43 @@
 
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <link href="{% static 'css/reset.css' %}" rel="stylesheet">
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
   </head>
   <body>
     <div class="canvas">
       <header>
-        <!-- Navigation -->
-        <nav class="nav-bar">
+        <!-- Mobile Navigation -->
+        <nav class="nav-bar mobile-nav-bar">
+          <!-- Drop-down Menu -->
+          <div id="drawer1" class="mobile-nav-wrapper drawer-closed">
+            <ul>
+              <li><a href="#">Projects</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <!-- Drop-down Menu Button -->
+          <div class="menu-toggle-wrapper">
+            <a id="mobile-menu-toggle" href="#" data-drawer="drawer1">
+              Menu
+            </a>
+          </div>
+        </nav>
+
+        <!-- Logo -->
+        <div id="logo">
+          <h1 class="logo">
+            <a href="#logo">
+              <img src="{% static 'images/title_logo.png' %}"
+                   alt="Adam Joyce Games">
+            </a>
+          </h1>
+        </div>
+
+        <!-- Regular Navigation -->
+        <nav class="nav-bar default-nav-bar">
           <ul>
             <li><a href="#">Projects</a></li>
             <li><a href="#">About</a></li>
@@ -30,5 +59,11 @@
       {% block page_content %}
       {% endblock%}
     </div>
+
+    <!-- Scripts -->
+    {% block scripts %}
+    {% endblock %}
+    <script src="{% static 'js/drawer.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>
