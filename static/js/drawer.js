@@ -1,3 +1,4 @@
+// Sliding drawer functionality for navigation menus.
 var Drawer = {
   init: function() {
     Drawer.bindUI();

@@ -32,9 +32,9 @@ header {
   text-decoration: none;
 }
 
-/* .nav-bar a:hover {
+.default-nav-bar a:hover {
   color: #111;
-} */
+}
 
 .mobile-nav-bar {
   display: block;
@@ -42,7 +42,7 @@ header {
 }
 
 .mobile-nav-bar {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   width: 100%;
 }
 
@@ -79,22 +79,65 @@ header {
   text-align: center;
 }
 
+.logo a {
+  text-decoration: none;
+}
+
 .logo img {
+  color: #999;
+  font-size: 2.5rem;      /* 40px */
   max-height: 100%;
   max-width: 100%;
 }
 
 #logo {
   display: block;
+  margin-right: 1rem;
 }
 /* End of Header. */
+
+/* Page Content. */
+#page-content {
+  padding: 4rem 0;
+}
+
+/* Projects Page. */
+.project {
+  display: block;
+  margin: 0 auto;
+  width: 20.625rem;     /* 330px */
+}
+
+.project-img {
+  height: auto;
+  max-width: 340px;
+  width: 100%;
+}
+
+.project-title {
+  font-size: 0.875rem;     /* 14px */
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* End of Projects Page. */
+/* End of Page Content. */
+
+
+/* Footer. */
+footer p {
+  padding: 1.25rem 0;
+}
+/* End of Footer. */
 
 
 /* Media Queries. */
 @media (max-width: 45.8125rem) {      /* 733px */
   .canvas {
     margin: 0;
-    padding: 0 1.25rem;     /* 20px */
+    padding: 1.25rem;     /* 20px */
+    padding-top: 0;
   }
 
   .logo {
@@ -104,10 +147,36 @@ header {
   .default-nav-bar {
     display: none;
   }
+
+  .project {
+    width: 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .project {
+    width: 80%;
+  }
 }
 
 /* CSS Grid Support. */
 @supports (display: grid) {
+  .project {
+    justify-items: center;
+    width: auto;
+  }
+
+  .project-title {
+    padding-bottom: 0;
+  }
+
+  #project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 2rem;
+  }
+
   @media (min-width: 45.8125rem) {      /* 733px */
     .mobile-nav-bar {
       display: none;
@@ -137,6 +206,12 @@ header {
 
     #logo {
       display: inline-block;
+    }
+  }
+
+  @media (max-width: 45.8125rem) {      /* 733px */
+    #project-grid {
+      grid-template-columns: 1fr 1fr;
     }
   }
 }
