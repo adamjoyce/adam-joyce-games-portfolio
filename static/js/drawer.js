@@ -1,10 +1,11 @@
-// Sliding drawer functionality for navigation menus.
+// Sliding drawer functionality navigation and div elements.
 var Drawer = {
   init: function() {
     Drawer.bindUI();
   },
 
   bindUI: function() {
+    // Mobile navigation menu.
     var toggleElement = document.getElementById('mobile-menu-toggle');
     if (toggleElement) {
       // The drawer element associated with this toggle element.
@@ -24,6 +25,20 @@ var Drawer = {
           drawerElement.style.borderBottom = '0px none';
         }
       });
+    }
+
+    // Project panes.
+    var toggleElements = document.getElementsByClassName('project');
+    if (toggleElements) {
+      for (var i = 0; i < toggleElements.length; ++i) {
+        var drawerElement = document.getElementById(
+          toggleElements[i].dataset.drawer
+        );
+        toggleElements[i].addEventListener('click', function() {
+          drawerElement.classList.toggle('hidden');
+          console.log("CLICKED + " + drawerElement.id);
+        });
+      }
     }
   }
 };
