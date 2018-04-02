@@ -5,7 +5,7 @@
 <section id="page-content">
   <!-- Project expanding section. -->
   {% for project in projects %}
-  <div id="project-pane-{{ forloop.counter }}" class="project-pane hidden">
+  <div id="{{ project.slug }}" class="project-pane hidden">
     <h1>{{ project.title|upper }}</h1>
   </div>
   {% endfor %}
@@ -13,9 +13,7 @@
   <!-- Grid of all selectable projects. -->
   <div id="project-grid">
     {% for project in projects %}
-    <a class="project"
-       href="#/{{ project.slug }}"
-       data-drawer="project-pane-{{ forloop.counter }}">
+    <a class="project" href="#/{{ project.slug }}">
       <img class="project-img" src="{{ project.get_thumbnail }}" alt="">
       <h1 class="project-title">{{ project.title }}</h1>
     </a>

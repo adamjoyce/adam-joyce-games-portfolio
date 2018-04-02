@@ -2,6 +2,7 @@
 var Drawer = {
   init: function() {
     Drawer.bindUI();
+    Drawer.activateDrawer();
   },
 
   bindUI: function() {
@@ -28,42 +29,35 @@ var Drawer = {
     }
 
     // Project panes.
-    var toggleElements = document.getElementsByClassName('project');
-    if (toggleElements) {
-      // Grab all potential project drawers.
-      var drawerElements = document.querySelectorAll('[id*="project-pane-"]');
-      for (var i = 0; i < toggleElements.length; ++i) {
-        toggleElements[i].addEventListener('click', function(e) {
-          var targetDrawer = document.getElementById(
-            e.target.parentNode.dataset.drawer
-          );
-          if (targetDrawer) {
-            // Closes any currently opened drawers that are not the target.
-            for (var i = 0; i < drawerElements.length; ++i) {
-              if (drawerElements[i] !== targetDrawer &&
-                  !drawerElements[i].classList.contains('hidden')) {
-                    drawerElements[i].classList.toggle('hidden');
-                  }
-            }
+    window.addEventListener('hashchange', function() {
+      Drawer.activateDrawer();
+    });
+  },
 
-            // Toggle the target open if closed.
-            if (targetDrawer.classList.contains('hidden')) {
-              targetDrawer.classList.toggle('hidden');
-            }
-            Drawer.smoothScrollToTop();
-          }
-        });
-      }
+  activateDrawer: function() {
+    if (location.hash) {
+      var targetDrawer = document.getElementById(location.hash.substring(2));
+      if (targetDrawer) {
+        var drawers = document.getElementsByClassName('project-pane');
+        Drawer.closeNonTargetDrawers(targetDrawer, drawers, 'hidden');
+        Drawer.openTargetDrawer(targetDrawer, 'hidden');
+        SmoothScroll.scrollToTop();
+      }      
     }
   },
 
-  smoothScrollToTop: function() {
-    var currentScroll = document.documentElement.scrollTop ||
-                        document.body.scrollTop;
-    if (currentScroll > 0) {
-      // Smoothly animate a scroll to the top.
-      window.requestAnimationFrame(Drawer.smoothScrollToTop);
-      window.scrollTo(0, currentScroll - (currentScroll / 5));
+  closeNonTargetDrawers: function(target, drawers, visibleClass) {
+    for (var i = 0; i < drawers.length; ++i) {
+      if (drawers[i] !== target &&
+          !drawers[i].classList.contains(visibleClass)) {
+            drawers[i].classList.toggle(visibleClass);
+          }
+    }
+  },
+
+  openTargetDrawer: function(target, visibleClass) {
+    if (target.classList.contains(visibleClass)) {
+      target.classList.toggle(visibleClass);
     }
   }
 };
