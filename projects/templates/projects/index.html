@@ -14,7 +14,7 @@
   <div id="project-grid">
     {% for project in projects %}
     <a class="project"
-       href="#"
+       href="#/{{ project.slug }}"
        data-drawer="project-pane-{{ forloop.counter }}">
       <img class="project-img" src="{{ project.get_thumbnail }}" alt="">
       <h1 class="project-title">{{ project.title }}</h1>

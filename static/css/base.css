@@ -116,6 +116,7 @@ a:visited {
 
 .project-pane {
   background: grey;
+  height: 10rem;
 }
 
 .hidden {
