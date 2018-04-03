@@ -8,7 +8,9 @@ class Project(models.Model):
     description = models.TextField()
     thumbnail = models.ImageField(upload_to='projects/project_images',
                                   blank=True)
-    link_video = models.URLField(blank=True)
+    video_id = models.CharField(max_length=25,
+                                blank=True,
+                                help_text='Youtube video ID.')
     link_github = models.URLField(blank=True)
     link_itchio = models.URLField(blank=True)
     slug = models.SlugField(unique=True, blank=True)

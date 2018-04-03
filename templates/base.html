@@ -4,13 +4,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% block title %}<title>Adam Joyce Games</title>{% endblock %}
+    <title>{% block title %}{% endblock %}Adam Joyce Games</title>
 
     <!-- Favicon -->
     <link href="{% static 'images/favicon.jpg'%}" rel="shortcut icon">
 
     <!-- Stylesheets -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <link href="{% static 'css/reset.css' %}" rel="stylesheet">
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
@@ -21,25 +21,25 @@
         <!-- Mobile Navigation -->
         <nav class="nav-bar mobile-nav-bar">
           <!-- Drop-down Menu -->
-          <div id="drawer1" class="mobile-nav-wrapper drawer-closed">
+          <div id="mobile-drawer" class="mobile-nav-wrapper drawer-closed">
             <ul>
-              <li><a href="#">Projects</a></li>
+              <li><a href="{% url 'index' %}">Projects</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
           </div>
           <!-- Drop-down Menu Button -->
           <div class="menu-toggle-wrapper">
-            <a id="mobile-menu-toggle" href="#" data-drawer="drawer1">
+            <div id="mobile-menu-toggle" data-drawer="mobile-drawer">
               Menu
-            </a>
+            </div>
           </div>
         </nav>
 
         <!-- Logo -->
         <div id="logo">
           <h1 class="logo">
-            <a href="#logo">
+            <a href="{% url 'index' %}">
               <img src="{% static 'images/title_logo.png' %}"
                    alt="Adam Joyce Games">
             </a>
@@ -49,9 +49,24 @@
         <!-- Regular Navigation -->
         <nav class="nav-bar default-nav-bar">
           <ul>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li>
+              <a {% block active_link1 %}class="active_link"{% endblock %}
+                 href="{% url 'index' %}">
+                 Projects
+              </a>
+            </li>
+            <li>
+              <a {% block active_link2 %}class="active_link"{% endblock %}
+                 href="#">
+                 About
+              </a>
+            </li>
+            <li>
+              <a {% block active_link3 %}class="active_link"{% endblock %}
+                 href="#">
+                 Contact
+              </a>
+            </li>
           </ul>
         </nav>
       </header>

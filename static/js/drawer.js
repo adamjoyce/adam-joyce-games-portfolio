@@ -1,8 +1,17 @@
 // Sliding drawer functionality navigation and div elements.
 var Drawer = {
+  hiddenClass: 'hidden',
+  activeProjectDrawer: '',
+
   init: function() {
     Drawer.bindUI();
-    Drawer.activateDrawer();
+
+    // Check for initial open drawer i.e. page refresh with hash URL.
+    if (location.hash) {
+      var targetDrawer = document.getElementById(location.hash.substring(2));
+      Drawer.toggleDrawer(targetDrawer, Drawer.hiddenClass);
+      Drawer.activeProjectDrawer = targetDrawer;
+    }
   },
 
   bindUI: function() {
@@ -30,34 +39,28 @@ var Drawer = {
 
     // Project panes.
     window.addEventListener('hashchange', function() {
-      Drawer.activateDrawer();
+      Drawer.manageDrawers();
     });
   },
 
-  activateDrawer: function() {
+  manageDrawers: function() {
     if (location.hash) {
       var targetDrawer = document.getElementById(location.hash.substring(2));
       if (targetDrawer) {
-        var drawers = document.getElementsByClassName('project-pane');
-        Drawer.closeNonTargetDrawers(targetDrawer, drawers, 'hidden');
-        Drawer.openTargetDrawer(targetDrawer, 'hidden');
+        if (Drawer.activeProjectDrawer) {
+          // Close the active drawer.
+          Drawer.toggleDrawer(Drawer.activeProjectDrawer, Drawer.hiddenClass);
+        }
+        Drawer.toggleDrawer(targetDrawer, Drawer.hiddenClass);
         SmoothScroll.scrollToTop();
-      }      
+        Drawer.activeProjectDrawer = targetDrawer;
+      }
     }
   },
 
-  closeNonTargetDrawers: function(target, drawers, visibleClass) {
-    for (var i = 0; i < drawers.length; ++i) {
-      if (drawers[i] !== target &&
-          !drawers[i].classList.contains(visibleClass)) {
-            drawers[i].classList.toggle(visibleClass);
-          }
-    }
-  },
-
-  openTargetDrawer: function(target, visibleClass) {
-    if (target.classList.contains(visibleClass)) {
-      target.classList.toggle(visibleClass);
+  toggleDrawer: function(drawer, hiddenClass) {
+    if (drawer !== '') {
+      drawer.classList.toggle(hiddenClass);
     }
   }
 };

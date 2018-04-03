@@ -12,16 +12,34 @@ header {
 
 a,
 a:visited {
-  color: inherit;
+  color: #111;
   text-decoration: none;
+}
+
+a:hover {
+  border-color: rgba(17, 17, 17);
+}
+
+strong {
+  font-weight: 700;
 }
 /* End of General Elements. */
 
 
 /* General Classes. */
 .canvas {
-  margin: 0.625rem auto;      /* 10px auto */
-  padding: 4.6875rem;         /* 75px */
+  margin: 0.625rem auto;
+  padding: 4.6875rem;
+  padding-top: 0;
+}
+
+.underline {
+  border-bottom: 1px solid #111;
+}
+
+.underline {
+  border-bottom: 1px solid #111;
+  border-color: rgba(17, 17, 17, 0.2);
 }
 /* End of General Classes. */
 
@@ -36,6 +54,14 @@ a:visited {
 .nav-bar a {
   color: #999;
   text-decoration: none;
+}
+
+.nav-bar .active_link {
+  color: #111;
+}
+
+.default-nav-bar {
+  display: none;
 }
 
 .default-nav-bar a:hover {
@@ -59,7 +85,7 @@ a:visited {
 
 .mobile-nav-wrapper {
   border-bottom: 0px none;
-  max-height: 9.0625rem;     /* 145px */
+  max-height: 9.0625rem;
   overflow-y: hidden;
   transition: all 0.4s ease-in-out;
 }
@@ -81,7 +107,7 @@ a:visited {
 }
 
 .logo {
-  height: 3.125rem;     /* 50px */
+  height: 3.125rem;
   text-align: center;
 }
 
@@ -91,7 +117,7 @@ a:visited {
 
 .logo img {
   color: #999;
-  font-size: 2.5rem;      /* 40px */
+  font-size: 2.5rem;
   max-height: 100%;
   max-width: 100%;
 }
@@ -99,6 +125,13 @@ a:visited {
 #logo {
   display: block;
   margin-right: 1rem;
+}
+
+#mobile-menu-toggle {
+  color: #999;
+  cursor: pointer;
+  display: block;
+  padding: 0.75rem 0;
 }
 /* End of Header. */
 
@@ -108,15 +141,27 @@ a:visited {
 }
 
 /* Projects Page. */
+.project-description {
+  line-height: 1.8rem;
+  padding-bottom: 1rem;
+}
+
+.project-description h1 {
+  color: #222;
+  font-family: 'PT Sans';
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.project-description p {
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
 .project {
   display: block;
   margin: 0 auto;
-  width: 20.625rem;     /* 330px */
-}
-
-.project-pane {
-  background: grey;
-  height: 10rem;
+  width: 20.625rem;
 }
 
 .hidden {
@@ -137,12 +182,44 @@ a:visited {
 
 .project-title {
   color: #404040;
-  font-size: 0.875rem;     /* 14px */
+  font-size: 0.875rem;
   font-weight: 400;
   padding-bottom: 2rem;
   padding-top: 1rem;
   text-align: center;
   text-transform: uppercase;
+}
+
+.project-video {
+  height: 100%;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.video-wrapper {
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.project-video iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.paginator {
+  margin: 2rem 0;
+}
+
+.paginator span {
+  float: right;
+}
+
+.paginator p {
+  color: rgba(87, 87, 87, 0.5);
+  display: inline;
 }
 /* End of Projects Page. */
 /* End of Page Content. */
@@ -159,12 +236,12 @@ footer p {
 @media (max-width: 45.8125rem) {      /* 733px */
   .canvas {
     margin: 0;
-    padding: 1.25rem;     /* 20px */
+    padding: 1.25rem;
     padding-top: 0;
   }
 
   .logo {
-    height: 1.875rem;     /* 30px */
+    height: 1.875rem;
   }
 
   .default-nav-bar {
@@ -174,6 +251,10 @@ footer p {
   .project {
     width: 50%;
   }
+
+  .project-video {
+    width: 100%;
+  }
 }
 
 @media (max-width: 500px) {
@@ -181,6 +262,7 @@ footer p {
     width: 80%;
   }
 }
+
 
 /* CSS Grid Support. */
 @supports (display: grid) {
@@ -201,13 +283,18 @@ footer p {
   }
 
   @media (min-width: 45.8125rem) {      /* 733px */
+    .canvas {
+      padding-top: 4.6875rem;
+    }
+
     .mobile-nav-bar {
       display: none;
     }
 
     .default-nav-bar {
+      display: inline-block;
       float: right;
-      line-height: 2.9375rem;     /* 47px */
+      line-height: 2.9375rem;
     }
 
     .default-nav-bar li {
@@ -226,6 +313,13 @@ footer p {
     .logo {
       text-align: left;
     }
+
+    /* .project-pane {
+      display: grid;
+      grid-template-area: "video description";
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: 1fr;
+    } */
 
     #logo {
       display: inline-block;
