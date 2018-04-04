@@ -1,23 +1,365 @@
 /* General Elements. */
 body {
   color: #575757;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', arial, sans-serif;
   font-size: 1rem;
   font-weight: 300;
 }
 
 header {
-
+  display: block;
 }
 
+a,
+a:visited {
+  color: #111;
+  outline: 0;
+  text-decoration: none;
+}
 
-/* General Classes */
+a:hover {
+  border-color: rgba(17, 17, 17);
+}
+
+strong {
+  font-weight: 700;
+}
+/* End of General Elements. */
+
+
+/* General Classes. */
 .canvas {
-  margin: 0.625rem auto;      /* 10px auto */
-  padding: 4.6875rem;         /* 75px */
+  margin: 0.625rem auto;
+  padding: 4.6875rem;
+  padding-top: 0;
 }
+
+.underline {
+  border-bottom: 1px solid #111;
+}
+
+.underline {
+  border-bottom: 1px solid #111;
+  border-color: rgba(17, 17, 17, 0.2);
+}
+/* End of General Classes. */
+
 
 /* Header */
 .nav-bar {
+  display: inline-block;
+  font-family: 'PT Sans';
+  text-transform: uppercase;
+}
 
+.nav-bar a {
+  color: #999;
+  text-decoration: none;
+}
+
+.nav-bar .active_link {
+  color: #111;
+}
+
+.default-nav-bar {
+  display: none;
+}
+
+.default-nav-bar a:hover {
+  color: #111;
+}
+
+.mobile-nav-bar {
+  display: block;
+  text-align: center;
+}
+
+.mobile-nav-bar {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.mobile-nav-bar a {
+  display: block;
+  padding: 0.75rem 0;
+}
+
+.mobile-nav-wrapper {
+  border-bottom: 0px none;
+  max-height: 9.0625rem;
+  overflow-y: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+.mobile-nav-wrapper li:first-of-type a {
+  padding-top: 1.5rem;
+}
+
+.mobile-nav-wrapper li:last-of-type a {
+  padding-bottom: 1.5rem;
+}
+
+.drawer-closed {
+  max-height: 0;
+}
+
+.menu-toggle-wrapper {
+  padding: 0.75rem 0;
+}
+
+.logo {
+  height: 3.125rem;
+  text-align: center;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.logo img {
+  color: #999;
+  font-size: 2.5rem;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#logo {
+  display: block;
+  margin-right: 1rem;
+}
+
+#mobile-menu-toggle {
+  color: #999;
+  cursor: pointer;
+  display: block;
+  padding: 0.75rem 0;
+}
+/* End of Header. */
+
+/* Page Content. */
+#page-content {
+  padding: 4rem 0;
+}
+
+#page-content > h1 {
+  color: #222;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+/* Projects Page. */
+/* .project-pane {
+  font-size: 0.875rem;
+} */
+
+.description {
+  font-size: 0.875rem;
+  line-height: 1.8rem;
+  padding-bottom: 1rem;
+}
+
+.description h1 {
+  color: #222;
+  font-family: 'PT Sans';
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.description p {
+  margin-bottom: 1rem;
+}
+
+.project {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  width: 20.625rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.project-img {
+  display: block;
+  opacity: 1;
+  width: 100%;
+}
+
+.project-img:hover {
+  opacity: 0.7;
+  transition: opacity 0.14s ease-out;
+}
+
+.project-title {
+  display: block;
+  color: #404040;
+  font-size: 0.875rem;
+  font-weight: 400;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.project-video {
+  height: 100%;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.video-wrapper {
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.project-video iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.paginator {
+  margin: 2rem 0;
+}
+
+.paginator span {
+  float: right;
+}
+
+.paginator p {
+  color: rgba(87, 87, 87, 0.5);
+  display: inline;
+}
+/* End of Projects Page. */
+/* End of Page Content. */
+
+
+/* Footer. */
+footer p {
+  font-size: 0.875rem;
+  padding: 1.25rem 0;
+}
+/* End of Footer. */
+
+
+/* Media Queries. */
+@media (max-width: 45.8125rem) {      /* 733px */
+  .canvas {
+    margin: 0;
+    padding: 1.25rem;
+    padding-top: 0;
+  }
+
+  .logo {
+    height: 1.875rem;
+  }
+
+  .default-nav-bar {
+    display: none;
+  }
+
+  .project {
+    width: 50%;
+  }
+
+  .project-video {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .project {
+    width: 80%;
+  }
+}
+
+
+/* CSS Grid Support. */
+@supports (display: grid) {
+  .project {
+    margin: 0;
+    width: auto;
+  }
+
+  .project-title {
+    padding-bottom: 0;
+  }
+
+  #project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+  }
+
+  @media (min-width: 45.8125rem) {      /* 733px */
+    .canvas {
+      padding-top: 4.6875rem;
+    }
+
+    .mobile-nav-bar {
+      display: none;
+    }
+
+    .default-nav-bar {
+      display: inline-block;
+      float: right;
+      line-height: 2.9375rem;
+    }
+
+    .default-nav-bar li {
+      display: inline-block;
+    }
+
+    .default-nav-bar li a {
+      margin-right: 1rem;
+      padding: 1rem 0;
+    }
+
+    .default-nav-bar li:last-of-type a {
+      margin-right: 0;
+    }
+
+    .logo {
+      text-align: left;
+    }
+
+    .grid-wrapper {
+      display: grid;
+      grid-template-areas: "video description";
+      grid-template-columns: auto 15.625rem;
+      grid-gap: 3rem;
+    }
+
+    .project-description {
+      grid-area: description;
+      padding-bottom: 0;
+    }
+
+    .project-description p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .project-video {
+      grid-area: video;
+      width: 100%;
+    }
+
+    .paginator {
+      margin: 4rem 0;
+    }
+
+    #logo {
+      display: inline-block;
+    }
+  }
+
+  @media (max-width: 45.8125rem) {      /* 733px */
+    #project-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 }
