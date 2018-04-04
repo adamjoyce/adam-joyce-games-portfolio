@@ -24,7 +24,7 @@
           <div id="mobile-drawer" class="mobile-nav-wrapper drawer-closed">
             <ul>
               <li><a href="{% url 'index' %}">Projects</a></li>
-              <li><a href="#">About</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
           </div>
@@ -57,7 +57,7 @@
             </li>
             <li>
               <a {% block active_link2 %}class="active_link"{% endblock %}
-                 href="#">
+                 href="{% url 'about' %}">
                  About
               </a>
             </li>

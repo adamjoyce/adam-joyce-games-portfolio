@@ -14,16 +14,22 @@
   <div id="{{ project.slug }}" class="project-pane hidden">
     <div class="grid-wrapper">
       <!-- Project description. -->
-      <div class="project-description">
+      <div class="description">
         <h1>{{ project.title|upper }}</h1>
         {{ project.description|safe }}
         {% if project.link_github %}
         <p>
-          <a class="underline" href="{{ project.link_github }}">GitHub Repository</a>
+          <a class="underline" href="{{ project.link_github }}">
+            GitHub Repository
+          </a>
         </p>
         {% endif %}
         {% if project.link_itchio %}
-        <p><a class="underline" href="{{ project.link_itchio }}">itch.io Page</a></p>
+        <p>
+          <a class="underline" href="{{ project.link_itchio }}">
+            itch.io Page
+          </a>
+        </p>
         {% endif %}
       </div>
 

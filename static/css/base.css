@@ -141,24 +141,32 @@ strong {
   padding: 4rem 0;
 }
 
-/* Projects Page. */
-.project-pane {
-  font-size: 0.875rem;
+#page-content > h1 {
+  color: #222;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
 }
 
-.project-description {
+/* Projects Page. */
+/* .project-pane {
+  font-size: 0.875rem;
+} */
+
+.description {
+  font-size: 0.875rem;
   line-height: 1.8rem;
   padding-bottom: 1rem;
 }
 
-.project-description h1 {
+.description h1 {
   color: #222;
   font-family: 'PT Sans';
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
 
-.project-description p {
+.description p {
   margin-bottom: 1rem;
 }
 
@@ -232,6 +240,7 @@ strong {
 
 /* Footer. */
 footer p {
+  font-size: 0.875rem;
   padding: 1.25rem 0;
 }
 /* End of Footer. */
