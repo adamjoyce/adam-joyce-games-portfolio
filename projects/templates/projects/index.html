@@ -12,28 +12,33 @@
   <!-- Project expanding section. -->
   {% for project in projects %}
   <div id="{{ project.slug }}" class="project-pane hidden">
-    <!-- Project description. -->
-    <div class="project-description">
-      <h1>{{ project.title|upper }}</h1>
-      {{ project.description|safe }}
-      {% if project.link_github %}
-      <p>
-        <a class="underline" href="{{ project.link_github }}">GitHub Repository</a>
-      </p>
-      {% endif %}
-      {% if project.link_itchio %}
-      <p><a class="underline" href="{{ project.link_itchio }}">itch.io Page</a></p>
-      {% endif %}
-    </div>
-
-    <!-- Project video. -->
-    {% if project.video_id %}
-    <div class="project-video">
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/{{ project.video_id }}"></iframe>
+    <div class="grid-wrapper">
+      <!-- Project description. -->
+      <div class="project-description">
+        <h1>{{ project.title|upper }}</h1>
+        {{ project.description|safe }}
+        {% if project.link_github %}
+        <p>
+          <a class="underline" href="{{ project.link_github }}">GitHub Repository</a>
+        </p>
+        {% endif %}
+        {% if project.link_itchio %}
+        <p><a class="underline" href="{{ project.link_itchio }}">itch.io Page</a></p>
+        {% endif %}
       </div>
+
+      <!-- Project video. -->
+      {% if project.video_id %}
+      <div class="project-video">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/{{ project.video_id }}"
+                  scrolling="no"
+                  allowfullscreen=""
+                  frameborder="0"></iframe>
+        </div>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
 
     <!-- Simple seudo-pagination. -->
     <div class="paginator">
@@ -62,7 +67,9 @@
   <div id="project-grid">
     {% for project in projects %}
     <a class="project" href="#/{{ project.slug }}">
-      <img class="project-img" src="{{ project.get_thumbnail }}" alt="">
+      <img class="project-img"
+           src="{{ project.get_thumbnail }}"
+           alt="{{ project.title }} Image">
       <h1 class="project-title">{{ project.title }}</h1>
     </a>
     {% endfor %}

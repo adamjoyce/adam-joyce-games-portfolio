@@ -7,7 +7,8 @@ class Project(models.Model):
     date = models.DateTimeField(default=timezone.now)
     description = models.TextField()
     thumbnail = models.ImageField(upload_to='projects/project_images',
-                                  blank=True)
+                                  blank=True,
+                                  help_text='Prefer a 1:1 ratio.')
     video_id = models.CharField(max_length=25,
                                 blank=True,
                                 help_text='Youtube video ID.')

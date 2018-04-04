@@ -13,6 +13,7 @@ header {
 a,
 a:visited {
   color: #111;
+  outline: 0;
   text-decoration: none;
 }
 
@@ -141,6 +142,10 @@ strong {
 }
 
 /* Projects Page. */
+.project-pane {
+  font-size: 0.875rem;
+}
+
 .project-description {
   line-height: 1.8rem;
   padding-bottom: 1rem;
@@ -154,12 +159,12 @@ strong {
 }
 
 .project-description p {
-  font-size: 0.9375rem;
   margin-bottom: 1rem;
 }
 
 .project {
   display: block;
+  height: auto;
   margin: 0 auto;
   width: 20.625rem;
 }
@@ -169,8 +174,7 @@ strong {
 }
 
 .project-img {
-  height: auto;
-  max-width: 340px;
+  display: block;
   opacity: 1;
   width: 100%;
 }
@@ -181,6 +185,7 @@ strong {
 }
 
 .project-title {
+  display: block;
   color: #404040;
   font-size: 0.875rem;
   font-weight: 400;
@@ -267,7 +272,7 @@ footer p {
 /* CSS Grid Support. */
 @supports (display: grid) {
   .project {
-    justify-items: center;
+    margin: 0;
     width: auto;
   }
 
@@ -278,7 +283,6 @@ footer p {
   #project-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
     grid-gap: 2rem;
   }
 
@@ -314,12 +318,30 @@ footer p {
       text-align: left;
     }
 
-    /* .project-pane {
+    .grid-wrapper {
       display: grid;
-      grid-template-area: "video description";
-      grid-template-columns: 3fr 1fr;
-      grid-template-rows: 1fr;
-    } */
+      grid-template-areas: "video description";
+      grid-template-columns: auto 15.625rem;
+      grid-gap: 3rem;
+    }
+
+    .project-description {
+      grid-area: description;
+      padding-bottom: 0;
+    }
+
+    .project-description p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .project-video {
+      grid-area: video;
+      width: 100%;
+    }
+
+    .paginator {
+      margin: 4rem 0;
+    }
 
     #logo {
       display: inline-block;
