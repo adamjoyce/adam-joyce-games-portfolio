@@ -10,7 +10,7 @@
     <link href="{% static 'images/favicon.jpg'%}" rel="shortcut icon">
 
     <!-- Stylesheets -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <link href="{% static 'css/reset.css' %}" rel="stylesheet">
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
@@ -23,9 +23,9 @@
           <!-- Drop-down Menu -->
           <div id="mobile-drawer" class="mobile-nav-wrapper drawer-closed">
             <ul>
-              <li><a href="{% url 'index' %}">Projects</a></li>
+              <li><a href="{% url 'projects' %}">Projects</a></li>
               <li><a href="{% url 'about' %}">About</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
           </div>
           <!-- Drop-down Menu Button -->
@@ -39,7 +39,7 @@
         <!-- Logo -->
         <div id="logo">
           <h1 class="logo">
-            <a href="{% url 'index' %}">
+            <a href="{% url 'projects' %}">
               <img src="{% static 'images/title_logo.png' %}"
                    alt="Adam Joyce Games">
             </a>
@@ -51,7 +51,7 @@
           <ul>
             <li>
               <a {% block active_link1 %}class="active_link"{% endblock %}
-                 href="{% url 'index' %}">
+                 href="{% url 'projects' %}">
                  Projects
               </a>
             </li>
@@ -63,7 +63,7 @@
             </li>
             <li>
               <a {% block active_link3 %}class="active_link"{% endblock %}
-                 href="#">
+                 href="{% url 'contact' %}">
                  Contact
               </a>
             </li>

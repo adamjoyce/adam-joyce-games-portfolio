@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact | {% endblock %}
+
+{% block active_link1 %}{% endblock %}
+{% block active_link2 %}{% endblock %}
+
+{% block page_content %}
+<section id="page-content">
+  <div class="contact-wrapper">
+    <h1 id="page-title"><strong>Contact Me</strong></h1>
+    <div class="description-wrapper">
+      <!-- Contact Details. -->
+      <p><strong>Phone:</strong> +44 (0)7719 351666</p>
+      <p>
+        <strong>itch.io:</strong>
+        <a class="underline"
+           href="https://adamjoyce.itch.io/"
+           target="_blank">
+          adamjoyce.itch.io
+        </a>
+      </p>
+      <p>
+        <strong>LinkedIn:</strong>
+        <a class="underline"
+           href="https://uk.linkedin.com/in/adamjoycegames"
+           target="_blank">
+          uk.linkedin.com/in/adamjoycegames
+        </a>
+      </p>
+      <p>
+        <strong>Youtube:</strong>
+        <a class="underline"
+           href="https://goo.gl/bYpLUe"
+           target="_blank">
+          youtube.com/user/adamjoycegames
+        </a>
+      </p>
+      <p>
+        <strong>Twitter:</strong>
+        <a class="underline"
+           href="https://www.twitter.com/AdamJoyceGames"
+           target="_blank">
+          twitter.com/AdamJoyceGames
+        </a>
+      </p>
+      <p>For less urgent inquiries or if I am unreachable at the phone number
+      above please feel free to fill out the form below and I will get back to
+      you as soon as I can.</p>
+
+      <!-- Contact Form. -->
+      <div class="form-wrapper">
+        <div class="form-instruction">
+          <h3>Please complete the form below</h3>
+        </div>
+        <form class="input-form" action="{% url 'contact' %}" method="post">
+          {% csrf_token %}
+          {% for field in form %}
+          {% if forloop.first or forloop.counter0 == 1 %}
+          {% if forloop.first %}
+          <div class="form-field-wrapper clearfix">
+          {% endif %}
+            <div class="half-field">
+              {{ field.label_tag }}
+              {{ field }}
+              <span>{{ field.help_text }}</span>
+            </div>
+          {% if forloop.counter0 == 1 %}
+          </div>
+          {% endif %}
+          {% else %}
+          <div class="form-field-wrapper">
+            {{ field.label_tag }}
+            {{ field }}
+          </div>
+          {% endif %}
+          {% endfor %}
+          <strong>
+            <input class="block-button" type="submit" value="Submit">
+          </strong>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

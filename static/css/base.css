@@ -22,7 +22,13 @@ a:hover {
 }
 
 strong {
-  font-weight: 700;
+  font-weight: 500;
+}
+
+input {
+  border: 0;
+  font-family: 'Montserrat';
+  outline: 0;
 }
 /* End of General Elements. */
 
@@ -46,8 +52,8 @@ strong {
 .block-button {
   background: #272727;
   color: #fff;
+  cursor: pointer;
   font-size: 0.75rem;
-  font-weight: 700;
   opacity: 1;
   padding: 0.8125rem 1.625rem;
   text-transform: uppercase;
@@ -61,6 +67,66 @@ strong {
 .block-button:visited {
   color: #fff;
 }
+
+.form-field-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.form-field-wrapper label {
+  display: block;
+}
+
+.form-field-wrapper input,
+.form-field-wrapper textarea {
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  height: 2.75rem;
+  margin: 0.25rem 0;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.form-field-wrapper textarea {
+  font-size: 0.75rem;
+  height: 10rem;
+  resize: vertical;
+}
+
+.form-field-wrapper input:focus,
+.form-field-wrapper textarea:focus {
+  background: #fff;
+}
+
+.form-field-wrapper span {
+  font-size: 0.75rem;
+}
+
+.half-field {
+  display: inline-block;
+  float: left;
+  width: 49%;
+}
+
+.half-field:nth-of-type(2n) {
+  float: right;
+  margin-top: 1.8rem;
+}
+
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: block;
+  height: 0;
+}
+
+/* .half-field input,
+.half-field textarea {
+  width: 50%;
+} */
 /* End of General Classes. */
 
 
@@ -156,39 +222,35 @@ strong {
 /* End of Header. */
 
 /* Page Content. */
-#page-content {
-  padding: 4rem 0;
-}
-
-#page-content > h1 {
-  color: #222;
-  font-size: 1.4rem;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-}
-
-/* Projects Page. */
-/* .project-pane {
-  font-size: 0.875rem;
-} */
-
-.description {
+.description-wrapper {
   font-size: 0.875rem;
   line-height: 1.8rem;
   padding-bottom: 1rem;
 }
 
-.description h1 {
+.description-wrapper h1 {
   color: #222;
   font-family: 'PT Sans';
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
 
-.description p {
+.description-wrapper p {
   margin-bottom: 1rem;
 }
 
+#page-content {
+  padding: 4rem 0;
+}
+
+#page-title {
+  color: #222;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+/* Projects Page. */
 .project {
   display: block;
   height: auto;
@@ -215,7 +277,6 @@ strong {
   display: block;
   color: #404040;
   font-size: 0.875rem;
-  font-weight: 400;
   padding-bottom: 2rem;
   padding-top: 1rem;
   text-align: center;
@@ -260,7 +321,6 @@ strong {
 .profile-image {
   display: block;
   border: 2px solid #222;
-  /* border-radius: 50%; */
   margin: 2rem auto;
   width: 15rem;
 }
@@ -269,6 +329,29 @@ strong {
   margin-bottom: 1rem;
 }
 /* End of About Page. */
+
+
+/* Contact Page. */
+.contact-wrapper {
+  margin: 0 auto;
+  width: 66.67%;
+}
+
+.form-wrapper {
+  margin-top: 6.5rem;
+}
+
+.form-instruction {
+  margin-bottom: 2.5rem;
+}
+
+.form-instruction > h3 {
+  color: #d1d1d1;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+/* End of Contact Page. */
 /* End of Page Content. */
 
 
@@ -301,6 +384,10 @@ footer p {
   }
 
   .project-video {
+    width: 100%;
+  }
+
+  .contact-wrapper {
     width: 100%;
   }
 }
@@ -386,7 +473,7 @@ footer p {
       margin: 4rem 0;
     }
 
-    .description {
+    .description-wrapper {
       grid-area: description;
     }
 

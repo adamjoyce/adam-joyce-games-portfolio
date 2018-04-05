@@ -14,19 +14,23 @@
   <div id="{{ project.slug }}" class="project-pane hidden">
     <div class="grid-wrapper">
       <!-- Project description. -->
-      <div class="description">
+      <div class="description-wrapper">
         <h1>{{ project.title|upper }}</h1>
         {{ project.description|safe }}
         {% if project.link_github %}
         <p>
-          <a class="underline" href="{{ project.link_github }}">
+          <a class="underline"
+             href="{{ project.link_github }}"
+             target="_blank">
             GitHub Repository
           </a>
         </p>
         {% endif %}
         {% if project.link_itchio %}
         <p>
-          <a class="underline" href="{{ project.link_itchio }}">
+          <a class="underline"
+             href="{{ project.link_itchio }}"
+             target="_blank">
             itch.io Page
           </a>
         </p>
@@ -48,7 +52,7 @@
 
     <!-- Simple seudo-pagination. -->
     <div class="paginator">
-      <a href="{% url 'index' %}">Back to Projects</a>
+      <a href="{% url 'projects' %}">Back to Projects</a>
       <span>
         {% if forloop.first %}
         <p>prev</p> /
