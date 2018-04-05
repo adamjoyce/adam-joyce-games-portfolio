@@ -10,10 +10,11 @@
 <section id="page-content">
   <h1><strong>About Me</strong></h1>
   <div id="about-information">
-    <div class="profile-picture">
+    <!-- Profile picture. -->
+    <img class="profile-image"
+         src="/static/images/profile_image.jpg"
+         alt="Picture of Adam Joyce">
 
-    </div>
-    
     <!-- About me description. -->
     <div class="description">
       <p>Hi my name is Adam!  I'm a Gameplay Programmer.</p>
@@ -28,5 +29,8 @@
       <a class="underline" href="{% url 'index' %}">projects</a> page.</p>
     </div>
   </div>
+  <a class="block-button" href="{% url 'cv' %}" target="_blank">
+    Download CV
+  </a>
 </section>
 {% endblock %}

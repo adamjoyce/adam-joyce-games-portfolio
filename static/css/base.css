@@ -12,7 +12,7 @@ header {
 
 a,
 a:visited {
-  color: #111;
+  color: inherit;
   outline: 0;
   text-decoration: none;
 }
@@ -41,6 +41,25 @@ strong {
 .underline {
   border-bottom: 1px solid #111;
   border-color: rgba(17, 17, 17, 0.2);
+}
+
+.block-button {
+  background: #272727;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  opacity: 1;
+  padding: 0.8125rem 1.625rem;
+  text-transform: uppercase;
+  transition: opacity linear 0.1s;
+}
+
+.block-button:hover {
+  opacity: 0.6;
+}
+
+.block-button:visited {
+  color: #fff;
 }
 /* End of General Classes. */
 
@@ -235,6 +254,21 @@ strong {
   display: inline;
 }
 /* End of Projects Page. */
+
+
+/* About Page. */
+.profile-image {
+  display: block;
+  border: 2px solid #222;
+  /* border-radius: 50%; */
+  margin: 2rem auto;
+  width: 15rem;
+}
+
+#about-information {
+  margin-bottom: 1rem;
+}
+/* End of About Page. */
 /* End of Page Content. */
 
 
@@ -352,8 +386,26 @@ footer p {
       margin: 4rem 0;
     }
 
+    .description {
+      grid-area: description;
+    }
+
+    .profile-image {
+      gird-area: image;
+      margin: 0;
+    }
+
     #logo {
       display: inline-block;
+    }
+
+    #about-information {
+      align-items: start;
+      display: grid;
+      grid-gap: 2rem;
+      grid-template-areas: "description image";
+      grid-template-columns: 4fr 3fr;
+      justify-items: center;
     }
   }
 
