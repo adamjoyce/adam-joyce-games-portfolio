@@ -9,6 +9,7 @@
 {% block page_content %}
 <section id="page-content">
   <div class="contact-wrapper">
+    {% block email_submitted %}{% endblock %}
     <h1 id="page-title"><strong>Contact Me</strong></h1>
     <div class="description-wrapper">
       <!-- Contact Details. -->
@@ -45,6 +46,7 @@
           twitter.com/AdamJoyceGames
         </a>
       </p>
+      {% if form %}
       <p>For less urgent inquiries or if I am unreachable at the phone number
       above please feel free to fill out the form below and I will get back to
       you as soon as I can.</p>
@@ -81,6 +83,7 @@
           </strong>
         </form>
       </div>
+      {% endif %}
     </div>
   </div>
 </section>

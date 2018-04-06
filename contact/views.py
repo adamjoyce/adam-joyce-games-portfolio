@@ -33,8 +33,11 @@ def contact(request):
             print('WHOOP')
 
             # Redirect to thank you page.
-            return HttpResponseRedirect()
+            return HttpResponseRedirect(reverse('submitted'))
     else:
         # The request if a GET or other method so create a blank form.
         form = EmailForm()
     return render(request, 'contact/contact.html', {'form': form})
+
+def submitted(request):
+    return render(request, 'contact/submitted.html')

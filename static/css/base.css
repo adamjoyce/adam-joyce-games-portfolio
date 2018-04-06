@@ -13,7 +13,6 @@ header {
 a,
 a:visited {
   color: inherit;
-  outline: 0;
   text-decoration: none;
 }
 
@@ -28,7 +27,6 @@ strong {
 input {
   border: 0;
   font-family: 'Montserrat';
-  outline: 0;
 }
 /* End of General Elements. */
 
@@ -123,10 +121,10 @@ input {
   height: 0;
 }
 
-/* .half-field input,
-.half-field textarea {
-  width: 50%;
-} */
+#email-submitted {
+  color: red;
+  margin-bottom: 3rem;
+}
 /* End of General Classes. */
 
 
@@ -498,6 +496,7 @@ footer p {
 
   @media (max-width: 45.8125rem) {      /* 733px */
     #project-grid {
+      grid-gap: 1rem;
       grid-template-columns: 1fr 1fr;
     }
   }
