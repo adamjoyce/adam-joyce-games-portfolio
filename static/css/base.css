@@ -264,6 +264,7 @@ input {
 .project-img {
   display: block;
   opacity: 1;
+  -webkit-backface-visibility: hidden;
   width: 100%;
 }
 
@@ -402,7 +403,7 @@ footer p {
 @supports (display: grid) {
   .project {
     margin: 0;
-    width: auto;
+    width: 100%;
   }
 
   .project-title {
