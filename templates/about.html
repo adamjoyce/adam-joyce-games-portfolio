@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About | {% endblock %}
+
+{% block active_link1 %}{% endblock %}
+{% block active_link3 %}{% endblock %}
+
+{% block page_content %}
+<section id="page-content">
+  <h1 id="page-title"><strong>About Me</strong></h1>
+  <div id="about-information">
+    <!-- Profile picture. -->
+    <img class="profile-image"
+         src="/static/images/profile_image.jpg"
+         alt="Picture of Adam Joyce">
+
+    <!-- About me description. -->
+    <div class="description-wrapper">
+      <p>Hi my name is Adam!  I'm a Gameplay Programmer.</p>
+      <p>I am currently looking for full-time and part-time gameplay programming
+      opportunities based in the United Kingdom.</p>
+      <p>I studied on the MSc Computer Games and Entertainment course at
+      Goldsmiths University.  The course gave me a great foundation in game
+      development covering many techniques integral to the games industry.</p>
+      <p>I have developed a number of small game and tool projects during my
+      time at university and in my spare time as a hobby.  Some of these
+      projects can be found on the
+      <a class="underline" href="{% url 'projects' %}">projects</a> page.</p>
+    </div>
+  </div>
+  <a class="block-button" href="{% url 'cv' %}" target="_blank">
+    <strong>Download CV</strong>
+  </a>
+</section>
+{% endblock %}

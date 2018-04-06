@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'projects',
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -129,7 +131,7 @@ STATICFILES_DIRS = [
 
 # Media files (i.e. uploaded media)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join('BASE_DIR', 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Email
