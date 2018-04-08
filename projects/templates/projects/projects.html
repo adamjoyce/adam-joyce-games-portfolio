@@ -41,10 +41,12 @@
       {% if project.video_id %}
       <div class="project-video">
         <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/{{ project.video_id }}"
-                  scrolling="no"
-                  allowfullscreen=""
-                  frameborder="0"></iframe>
+          <iframe
+          src=
+          "https://www.youtube.com/embed/{{ project.video_id }}?enablejsapi=1"
+          scrolling="no"
+          allowfullscreen=""
+          frameborder="0"></iframe>
         </div>
       </div>
       {% endif %}
