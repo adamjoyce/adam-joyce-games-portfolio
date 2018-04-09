@@ -17,7 +17,7 @@ a:visited {
 }
 
 a:hover {
-  border-color: rgba(17, 17, 17);
+  border-color: rgb(17, 17, 17);
 }
 
 strong {
@@ -306,11 +306,11 @@ input {
   margin: 2rem 0;
 }
 
-.paginator span {
+.paginator .paginator-nav {
   float: right;
 }
 
-.paginator p {
+.paginator .faded {
   color: rgba(87, 87, 87, 0.5);
   display: inline;
 }
@@ -478,7 +478,7 @@ footer p {
     }
 
     .profile-image {
-      gird-area: image;
+      grid-area: image;
       margin: 0;
     }
 
