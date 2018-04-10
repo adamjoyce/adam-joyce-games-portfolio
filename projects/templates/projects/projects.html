@@ -41,10 +41,10 @@
       {% if project.video_id %}
       <div class="project-video">
         <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/{{ project.video_id }}"
-                  scrolling="no"
-                  allowfullscreen=""
-                  frameborder="0"></iframe>
+          <iframe
+          src=
+          "https://www.youtube.com/embed/{{ project.video_id }}?enablejsapi=1"
+          allowfullscreen=""></iframe>
         </div>
       </div>
       {% endif %}
@@ -53,16 +53,16 @@
     <!-- Simple seudo-pagination. -->
     <div class="paginator">
       <a href="{% url 'projects' %}">Back to Projects</a>
-      <span>
+      <span class="paginator-nav">
         {% if forloop.first %}
-        <p>prev</p> /
+        <span class="faded">prev</span> /
         {% else %}
         {% with previous_project=projects|previous:forloop.counter0 %}
         <a href="#/{{ previous_project.slug }}">prev</a> /
         {% endwith %}
         {% endif %}
         {% if forloop.last %}
-        <p>next</p>
+        <span class="faded">next</span>
         {% else %}
         {% with next_project=projects|next:forloop.counter0 %}
         <a href="#/{{ next_project.slug }}">next</a>
@@ -80,7 +80,7 @@
       <img class="project-img"
            src="{{ project.get_thumbnail }}"
            alt="{{ project.title }} Image">
-      <h1 class="project-title">{{ project.title }}</h1>
+      <h2 class="project-title">{{ project.title }}</h2>
     </a>
     {% endfor %}
   </div>

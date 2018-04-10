@@ -49,6 +49,7 @@ var Drawer = {
       if (targetDrawer) {
         if (Drawer.activeProjectDrawer) {
           // Close the active drawer.
+          Drawer.pauseVideo(Drawer.activeProjectDrawer);
           Drawer.toggleDrawer(Drawer.activeProjectDrawer, Drawer.hiddenClass);
         }
         Drawer.toggleDrawer(targetDrawer, Drawer.hiddenClass);
@@ -62,5 +63,10 @@ var Drawer = {
     if (drawer !== '') {
       drawer.classList.toggle(hiddenClass);
     }
+  },
+
+  pauseVideo: function(parentDrawer) {
+    iframe = parentDrawer.getElementsByTagName('iframe')[0].contentWindow;
+    iframe.postMessage('{"event": "command", "func": "pauseVideo", "args": ""}', "*");
   }
 };

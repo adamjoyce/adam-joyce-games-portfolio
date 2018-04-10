@@ -17,7 +17,7 @@ a:visited {
 }
 
 a:hover {
-  border-color: rgba(17, 17, 17);
+  border-color: rgb(17, 17, 17);
 }
 
 strong {
@@ -264,6 +264,7 @@ input {
 .project-img {
   display: block;
   opacity: 1;
+  -webkit-backface-visibility: hidden;
   width: 100%;
 }
 
@@ -305,11 +306,11 @@ input {
   margin: 2rem 0;
 }
 
-.paginator span {
+.paginator .paginator-nav {
   float: right;
 }
 
-.paginator p {
+.paginator .faded {
   color: rgba(87, 87, 87, 0.5);
   display: inline;
 }
@@ -398,11 +399,12 @@ footer p {
 }
 
 
+
 /* CSS Grid Support. */
 @supports (display: grid) {
   .project {
     margin: 0;
-    width: auto;
+    width: 100%;
   }
 
   .project-title {
@@ -477,7 +479,7 @@ footer p {
     }
 
     .profile-image {
-      gird-area: image;
+      grid-area: image;
       margin: 0;
     }
 
