@@ -399,7 +399,6 @@ footer p {
 }
 
 
-
 /* CSS Grid Support. */
 @supports (display: grid) {
   .project {
